@@ -3,22 +3,92 @@
 <head>
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
-
-
-    <title>My Self Portrait</title> 
-    <!--
-        Use this page to complete the "Data Self Portrait" project:
-        https://canvas.umw.edu/courses/1499064/assignments/11895984
-    -->  
-
-    <style type="text/css">
-
-
-
+    <title>My Self Portrait</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://raw.githubusercontent.com/Rusulabbas/creative-coding/main/unit1/self-portrait/IMG_5729.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-shadow: 1px 1px 2px black;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
     </style>
-
 </head>
 <body>
+    <div class="container">
+        <h1>My Steps Week of 9/8/24</h1>
+        <div id="sketch-holder"></div>
+    </div>
+    <script>
+        let stepsData = [8517, 8065, 9766, 12981, 4497, 11982, 12862];
+        let daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
+        let dots = [];
+
+        function setup() {
+            let canvas = createCanvas(800, 400);
+            canvas.parent('sketch-holder');
+            background(255);
+
+            let xSpacing = width / (stepsData.length + 1);
+            let maxSteps = max(stepsData);
+
+            for (let i = 0; i < stepsData.length; i++) {
+                let x = (i + 1) * xSpacing;
+                let y = height / 2;
+                let dotSize = map(stepsData[i], 0, maxSteps, 20, 80);
+
+                dots.push({ x: x, y: y, size: dotSize, steps: stepsData[i], day: daysOfWeek[i] });
+
+                fill(100, 150, 255);
+                ellipse(x, y, dotSize, dotSize);
+
+                fill(0);
+                textAlign(CENTER);
+                text(stepsData[i] + " steps", x, y - dotSize / 2 - 10);
+                text(daysOfWeek[i], x, y + dotSize / 2 + 20);
+            }
+        }
+
+        function draw() {
+            background(255);
+            let xSpacing = width / (stepsData.length + 1);
+            let maxSteps = max(stepsData);
+
+            for (let i = 0; i < dots.length; i++) {
+                let dot = dots[i];
+                let distToMouse = dist(mouseX, mouseY, dot.x, dot.y);
+                let hoverSize = (distToMouse < dot.size / 2) ? dot.size * 1.5 : dot.size;
+
+                fill(100, 150, 255);
+                ellipse(dot.x, dot.y, hoverSize, hoverSize);
+
+                fill(0);
+                textAlign(CENTER);
+                text(dot.steps + " steps ", dot.x, dot.y - hoverSize / 2 - 10);
+                text(dot.day, dot.x, dot.y + hoverSize / 2 + 20);
+            }
+        }
+    </script>
+</body>
+</html>
+
 
 
 </body>
