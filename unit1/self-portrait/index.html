@@ -43,17 +43,16 @@
             background(255);
 
             let spacing = width / stepsArray.length;
-            let maxNum = 12981;  // Hardcoded max value instead of calculating
-
+            let maxNum = 12981;  
             for (let i = 0; i < stepsArray.length; i++) {
-                let posX = (i + 1) * spacing - 40;  // Shifted position manually
+                let posX = (i + 1) * spacing - 40;  
                 let posY = height / 2;
-                let circleSize = (stepsArray[i] / maxNum) * 100; // Simple math instead of map function
+                let circleSize = (stepsArray[i] / maxNum) * 100; 
 
                 allCircles.push({ x: posX, y: posY, size: circleSize, steps: stepsArray[i], day: daysArray[i] });
 
                 fill(150, 100, 255);
-                ellipse(posX, posY, circleSize, circleSize);  // Drawing circle
+                ellipse(posX, posY, circleSize, circleSize);  
 
                 fill(0);
                 textSize(12);
