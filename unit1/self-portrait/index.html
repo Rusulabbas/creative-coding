@@ -3,86 +3,84 @@
 <head>
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
-    <title>My Self Portrait</title>
+    <title>My Steps</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             background-image: url('https://raw.githubusercontent.com/Rusulabbas/creative-coding/main/unit1/self-portrait/IMG_5729.jpg');
             background-size: cover;
-            background-position: center;
             color: white;
-            text-shadow: 1px 1px 2px black;
-        }
-        .x {
             text-align: center;
+        }
+        .info-container {
             background: rgba(0, 0, 0, 0.5);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 50px;
         }
-        canvas {
+        #my-canvas {
+            margin-top: 20px;
             display: block;
-            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <div class="x">
-        <h1>My Steps Week of 9/8/24</h1>
-        <div id="sketch-holder"></div>
+    <div class="info-container">
+        <h1>My Steps Week</h1>
+        <div id="canvas-holder"></div>
     </div>
     <script>
-        let stepsData = [8517, 8065, 9766, 12981, 4497, 11982, 12862];
-        let daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
-        let dots = [];
+        let stepsArray = [8517, 8065, 9766, 12981, 4497, 11982, 12862];
+        let daysArray = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        let allCircles = [];
 
         function setup() {
-            let canvas = createCanvas(800, 400);
-            canvas.parent('sketch-holder');
+            let myCanvas = createCanvas(600, 300);
+            myCanvas.parent('canvas-holder');
             background(255);
 
-            let xSpacing = width / (stepsData.length + 1);
-            let maxSteps = max(stepsData);
+            let spacing = width / stepsArray.length;
+            let maxNum = 12981;  // Hardcoded max value instead of calculating
 
-            for (let i = 0; i < stepsData.length; i++) {
-                let x = (i + 1) * xSpacing;
-                let y = height / 2;
-                let dotSize = map(stepsData[i], 0, maxSteps, 20, 80);
+            for (let i = 0; i < stepsArray.length; i++) {
+                let posX = (i + 1) * spacing - 40;  // Shifted position manually
+                let posY = height / 2;
+                let circleSize = (stepsArray[i] / maxNum) * 100; // Simple math instead of map function
 
-                dots.push({ x: x, y: y, size: dotSize, steps: stepsData[i], day: daysOfWeek[i] });
+                allCircles.push({ x: posX, y: posY, size: circleSize, steps: stepsArray[i], day: daysArray[i] });
 
-                fill(100, 150, 255);
-                ellipse(x, y, dotSize, dotSize);
+                fill(150, 100, 255);
+                ellipse(posX, posY, circleSize, circleSize);  // Drawing circle
 
                 fill(0);
+                textSize(12);
                 textAlign(CENTER);
-                text(stepsData[i] + " steps", x, y - dotSize / 2 - 10);
-                text(daysOfWeek[i], x, y + dotSize / 2 + 20);
+                text(stepsArray[i] + " steps", posX, posY - circleSize / 2 - 10);
+                text(daysArray[i], posX, posY + circleSize / 2 + 10);
             }
         }
 
         function draw() {
             background(255);
-            let xSpacing = width / (stepsData.length + 1);
-            let maxSteps = max(stepsData);
 
-            for (let i = 0; i < dots.length; i++) {
-                let dot = dots[i];
-                let distToMouse = dist(mouseX, mouseY, dot.x, dot.y);
-                let hoverSize = (distToMouse < dot.size / 2) ? dot.size * 1.5 : dot.size;
+            for (let i = 0; i < allCircles.length; i++) {
+                let currentCircle = allCircles[i];
+                let distanceFromMouse = dist(mouseX, mouseY, currentCircle.x, currentCircle.y);
+                let hoverSize = currentCircle.size;
 
-                fill(100, 150, 255);
-                ellipse(dot.x, dot.y, hoverSize, hoverSize);
+                if (distanceFromMouse < currentCircle.size / 2) {
+                    hoverSize = currentCircle.size * 1.2;
+                }
+
+                fill(150, 100, 255);
+                ellipse(currentCircle.x, currentCircle.y, hoverSize, hoverSize);
 
                 fill(0);
-                textAlign(CENTER);
-                text(dot.steps + " steps ", dot.x, dot.y - hoverSize / 2 - 10);
-                text(dot.day, dot.x, dot.y + hoverSize / 2 + 20);
+                text(currentCircle.steps + " steps", currentCircle.x, currentCircle.y - hoverSize / 2 - 10);
+                text(currentCircle.day, currentCircle.x, currentCircle.y + hoverSize / 2 + 10);
             }
         }
     </script>
