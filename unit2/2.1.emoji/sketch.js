@@ -1,5 +1,8 @@
 
 // This is my attempt on the cross mouth emoji
+// I used your sample code on canvas and this link to make the lines
+// https://p5js.org/reference/p5/line/
+
 
 function setup() {
   // create a canvas
@@ -25,14 +28,11 @@ function draw() {
   ellipse(200,200,250,250) 
 
 
-
   // This is the left eye 
   stroke('Black');
   strokeWeight(3);
   fill("white");
   ellipse(150, 150, 50, 50) 
-
-
 
   // This is the right eye
   stroke('Black');
@@ -42,28 +42,20 @@ function draw() {
 
   // This is the left pupil 
   fill("black");
-  
   ellipse(150, 150, 20, 20); 
   
  // this is the right pupil
   fill("black");
-  
   ellipse(250, 150, 20, 20);
+
  // This is the mouth
  //this is this first line for the cross
-stroke('black');
-strokeWeight(5);
-line(170, 250, 230, 270);  
+  stroke('black');
+  strokeWeight(6);
+  line(170, 250, 230, 270);  
 
 // This is the second line for the cross
-stroke('black');
-strokeWeight(5);
-line(230, 250, 170, 270); 
-
-  
-  
-  square();
-  circle();
-  rect();
-  ellipse();
+  stroke('black');
+  strokeWeight(6);
+  line(230, 250, 170, 270); 
 }
