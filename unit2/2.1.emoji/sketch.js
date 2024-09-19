@@ -1,3 +1,6 @@
+
+// This is my attempt on the cross mouth emoji
+
 function setup() {
   // create a canvas
   createCanvas(400, 400);
@@ -7,7 +10,7 @@ function setup() {
 }
 
 function draw() {
-  background('white');
+  background('black');
 
   rectMode(CENTER);
  
