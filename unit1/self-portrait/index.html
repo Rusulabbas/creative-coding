@@ -1,94 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head></head>
 <!-- I track my steps daily using my Apple Watch, and my goal is to hit 10,000 steps, which is tough to achieve with my busy schedule. 
 Most of my steps come from going back and forth between work and classes. However, as you can see, on Fridays I tend to walk less 
 because I don’t have any classes, so I’m only on campus for work. Outside of work and school, I spend most of my time in my apartment,
 doing homework or studying. The main point of this project is to present my step data in a different, creative way compared 
 to how it’s displayed on my Apple Watch or phone. I picked a picture of my campus as the background since that’s where I walk the most. 
-Thanks! -->
+Thanks! 
+I used the p5.js reference to learn how to create and manage canvas elements:
+https://p5js.org/reference/
+I learned how to use arrays in p5.js by watching this video:
+https://www.youtube.com/watch?v=fBqaA7zRO58
+This example showed me how to draw circles and adjust their size based on numbers (like my step count):
+https://p5js.org/examples/form-regular-polygon.html
+I used this video to figure out how to make shapes larger when I move my mouse over them:
+https://www.youtube.com/watch?v=UqEmFSlx4ps
+I got the idea to store information about each circle in an array from this website after doing some research:
+https://happycoding.io/tutorials/p5js/arrays
+These are the only links/tutorials I was able to retrieve. I did a significant amount of research to understand what was possible and what wasn’t. 
+I didn’t follow an exact tutorial for this assignment but used my prior knowledge from personal and academic projects along with the resources above. 
+I hope this is okay. I apologize for not adding all this information earlier. I’m not used to commenting on my code in my other projects, but I see 
+how it's helpful for both me and my professors. I hope I’ve provided all the needed information. Thank you for giving me the opportunity to resubmit.
+-->
 
+
+    
+ </script> 
     <meta charset="utf-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script> <!-- This script adds the p5.js library, which helps create graphics and animations -->
     <title>My Steps</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://raw.githubusercontent.com/Rusulabbas/creative-coding/main/unit1/self-portrait/IMG_5729.jpg');
-            background-size: cover;
-            color: white;
-            text-align: center;
-        }
+            background-image: url('https://raw.githubusercontent.com/Rusulabbas/creative-coding/main/unit1/self-portrait/IMG_5729.jpg'); /* This sets the background image */
+            background-size: cover; /* Makes sure the background image covers the whole screen */
+            color: white; /* Sets the text color to white so it's easier to read */
+            text-align: center; /* Centers the text */}
         .info-container {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.5); /* Adds a dark transparent background behind the text making it easier to view my data */
+            padding: 20px; /* Adds some space around the text */
+            border-radius: 5px; /* Makes the corners of the container slightly rounded */
             display: inline-block;
-            margin-top: 50px;
-        }
+            margin-top: 50px; }
         #my-canvas {
             margin-top: 20px;
-            display: block;
-        }
+            display: block;}
     </style>
 </head>
 <body>
     <div class="info-container">
-        <h1>My Steps Week</h1>
+        <h1>My Steps Week of 9/9/24</h1>
         <div id="canvas-holder"></div>
     </div>
     <script>
+        // This is the number of steps I took each day of the week
         let stepsArray = [8517, 8065, 9766, 12981, 4497, 11982, 12862];
-        let daysArray = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        // These are the days of the week that go with the step counts
+        let daysArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        // This will store the information for each circle drawn (5)
         let allCircles = [];
-
+        // This function runs when the page loads and sets everything up
         function setup() {
+            // Creates a canvas that's 600 pixels wide and 300 pixels tall
             let myCanvas = createCanvas(600, 300);
+            // Attach the canvas to the 'canvas-holder' div in the HTML
             myCanvas.parent('canvas-holder');
+            // Set the background color to white
             background(255);
-
+            // Figure out how much space each circle should have
             let spacing = width / stepsArray.length;
-            let maxNum = 12981;  
+            // Find the largest number of steps so we can scale the circles correctly
+            let maxNum = 12981;
+            // created a Loop to go through each day of the week to draw a circle for it which represents my data 
             for (let i = 0; i < stepsArray.length; i++) {
-                let posX = (i + 1) * spacing - 40;  
+                // Calculate how far xpostion is across the screen
+                let posX = (i + 1) * spacing - 40;
+                // put the y-position to be in the middle of the screen
                 let posY = height / 2;
-                let circleSize = (stepsArray[i] / maxNum) * 100; 
-
-                allCircles.push({ x: posX, y: posY, size: circleSize, steps: stepsArray[i], day: daysArray[i] });
-
+                // Calculate how big each circle should be based on the number of steps
+                let circleSize = (stepsArray[i] / maxNum) * 100;
+            // Store information about each circle (its position, size, steps, and day so we can easily reference and change these later (like when hovering over a circle).
+            allCircles.push({ x: posX, y: posY, size: circleSize, steps: stepsArray[i], day: daysArray[i] });
+                // Set the color for the circle (I actually just entered random numbers and purple showed up so I decied to keep it because I think it ended up looking good :) )
                 fill(150, 100, 255);
-                ellipse(posX, posY, circleSize, circleSize);  
-
+                // Draw the circle at the calculated position and size
+                ellipse(posX, posY, circleSize, circleSize);
+                // Set the color for the text (black - easier to read)
                 fill(0);
+                // Set the size of the text
                 textSize(12);
+                // Center the text horizontally
                 textAlign(CENTER);
+                // Display the number of steps above the circle using the array i made above
                 text(stepsArray[i] + " steps", posX, posY - circleSize / 2 - 10);
-                text(daysArray[i], posX, posY + circleSize / 2 + 10);
-            }
-        }
-
+                // Display the day name below the circle using the array i made above 
+                text(daysArray[i], posX, posY + circleSize / 2 + 10);} }
+        // This function keeps running over and over to make the page interactive
         function draw() {
+         // Clear the background every time so the canvas is ready to be redrawn
             background(255);
-
+            // Go through each circle and draw it again
             for (let i = 0; i < allCircles.length; i++) {
+                // Get the current circle's information (position, size, steps, day)
                 let currentCircle = allCircles[i];
+                // Check how far the mouse is from the center of the circle
                 let distanceFromMouse = dist(mouseX, mouseY, currentCircle.x, currentCircle.y);
+                // Set the default size of the circle
                 let hoverSize = currentCircle.size;
-
+                // If the mouse is hovering over the circle, make the circle bigger
                 if (distanceFromMouse < currentCircle.size / 2) {
-                    hoverSize = currentCircle.size * 1.2;
-                }
-
+                    hoverSize = currentCircle.size * 1.2;} // Makes it 20% bigger 
+                // Set the color and draw the circle (making it bigger if the mouse is over it)
                 fill(150, 100, 255);
                 ellipse(currentCircle.x, currentCircle.y, hoverSize, hoverSize);
-
-                fill(0);
+                // Display the number of steps and day name again
+                fill(0); // Set the text color to black 
                 text(currentCircle.steps + " steps", currentCircle.x, currentCircle.y - hoverSize / 2 - 10);
-                text(currentCircle.day, currentCircle.x, currentCircle.y + hoverSize / 2 + 10);
-            }
-        }
+                text(currentCircle.day, currentCircle.x, currentCircle.y + hoverSize / 2 + 10);  } }
     </script>
 </body>
-</html>
+</html>  
