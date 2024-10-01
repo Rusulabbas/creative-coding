@@ -48,14 +48,4 @@ function draw() {
   fill("black");
   ellipse(250, 150, 20, 20);
 
- // This is the mouth
- //this is this first line for the cross
-  stroke('black');
-  strokeWeight(6);
-  line(170, 250, 230, 270);  
-
-// This is the second line for the cross
-stroke('black');
-strokeWeight(6);
-line(230, 250, 170, 270); 
 }
