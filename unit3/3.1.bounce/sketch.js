@@ -1,3 +1,6 @@
+// I followed along your youtube video for this assignment and created additonal shapes/tweaked some things.
+// Don't look at it too long it will make your head hurt. 
+//postions and speed of for the shapes
 let x = 0;
 let y = 0;
 let xspeed = 7;
@@ -13,7 +16,7 @@ let rspeed = 9;
 let sspeed = 9;
 
 // I followed along your youtube video for this assignment and created additonal shapes/tweaked some things.
-// Don't look at it too long it will make your head hurt. 
+// Don't look at it too long it will make your head hurt..learned that the hard way. 
 
 function setup() {
   createCanvas(400, 300);
@@ -28,7 +31,7 @@ function draw() {
 
   // checks where the square is 
   if (x > 175 || x < -175) {
-    xspeed = -xspeed; // if the squre has gone too far to the 
+    xspeed = -xspeed; // if the square has gone too far to the 
     //left or right the opposite direction
     //randomizes the color of the shape
     fill(random(255), 90, 90);
@@ -61,7 +64,7 @@ function draw() {
     fill(random(225), 100, 100)
   }
   circle(z, o, 10);
-// this updates the variables 
+// this updates the variables speed
   x += xspeed;
   y += yspeed;
   z += zspeed;
