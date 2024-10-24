@@ -21,7 +21,7 @@ function setup() {
 }
 
 function draw() {
-  //  background with transparency to create trail like animation used this as reference https://editor.p5js.org/JLizardo019/sketches/EHhiLLzxM
+  //background with transparency to create trail like animation used this as reference https://editor.p5js.org/JLizardo019/sketches/EHhiLLzxM
   background(0, 0, 0, 80);  // The last value (80) controls the transparency
 
   noStroke();
