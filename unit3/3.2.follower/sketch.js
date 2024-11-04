@@ -1,74 +1,86 @@
-let debug = true;
+let debug = false;
 let x = 0; 
 let y = 0;
 let d = 0;
 let score = 0;
 let speedfactor = 3;
-let speedx = speedfactor
+let speedx = speedfactor;
 let speedy = speedfactor;
 let goalx = 0;
 let goaly = 0;
+let goalsize = 30;
 
 function setup() {
   createCanvas(800, 800);
   x = random(width);
   y = random(height);
-  speedx = speedfactor;
+  goalx = random(width);
+  goaly = random(height);
 }
 
 function draw() {
   background(220);
 
-  rect(goalx, goaly, 20, 20);
+  // Draw the goal
+  rect(goalx, goaly, goalsize, goalsize);
 
-  // This is the Distance Formula
+  // Calculate distance between follower and mouse
   d = sqrt((x - mouseX) ** 2 + (y - mouseY) ** 2);
 
-  // Add the movement
+  // Add movement
   x += speedx;
   y += speedy;
 
-
-  // Draw a circle for the follower
+  // Draw follower
   circle(x, y, 50);
 
-  // Control the x-axis movement
+  // Control x-axis movement
   if (mouseX > x) {
-    speedx = speedfactor; // move to the right
+    speedx = speedfactor;
   } else {
-    speedx = -speedfactor; // move to the left
+    speedx = -speedfactor;
   }
 
-  // Control the y-axis movement
+  // Control y-axis movement
   if (mouseY > y) {
-    speedy = speedfactor; // move down
+    speedy = speedfactor;
   } else {
-    speedy = -speedfactor; // move up
+    speedy = -speedfactor;
   }
 
-  // check for collision with follower
-  if (d < 25){
-    score -= 1;
+  // Check for collision with follower
+  if (d < 25) {
+    score += 1;
     x = random(width);
     y = random(height);
-
-    goalx = random(wudth);
-    goaly = random(height);
-
   }
 
-  
-  // Debug information
+  // Check for collision with goal
+  if (
+    mouseX > goalx &&
+    mouseX < goalx + goalsize &&
+    mouseY > goaly &&
+    mouseY < goaly + goalsize
+  ) {
+    score += 1;
+    goalx = random(width);
+    goaly = random(height);
+  }
+
+  // Display score and debug information
+  textSize(32);
+  fill(0);
+  text("Score: " + score, 10, 40);
+
   if (debug) {
-    textSize(30);
+    textSize(20);
     text("mouseX: " + mouseX, 50, 50);
     text("mouseY: " + mouseY, 50, 80);
     text("x: " + x, 50, 120);
     text("y: " + y, 50, 150);
-    text("d: " + d, 50, 180); // Display distance as "d"
-    text("score: " + score, 50, 210);
+    text("d: " + d, 50, 180);
+    text("Score: " + score, 50, 210);
   }
 }
-
 
 
