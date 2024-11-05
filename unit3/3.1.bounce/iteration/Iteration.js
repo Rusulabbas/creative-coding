@@ -70,7 +70,7 @@ function draw() {
 }
 
 // used https://p5js.org/examples/animation-and-variables-animation-with-events/
-// as a reference - stuggled a little with the location
+// as a reference - struggled a little with the location
 function mousePressed() {
   // Start/stop the animation loop
   if (isLooping()) {
@@ -81,6 +81,6 @@ function mousePressed() {
 }
 
 function keyPressed() {
-  // Draws one frame when a key is pressed
+  // creates one frame when a key is pressed
   redraw();
 }
