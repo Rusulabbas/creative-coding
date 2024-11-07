@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EYE</title>
+    
+    <!-- For this assignment, I followed along with this YouTube tutorial:
+         https://www.youtube.com/watch?v=3ySlyTqpLx0.
+         Then I created two eyes instead of one and changed the style of the eyes. Because I followed along a video
+         I added more comments than I usually do to deminstrate my understanding and learning from the helpful video
+    -->
+
+    <style>
+        body {
+            background: #000000;
+        }
+
+        .wrapper {
+            position: absolute; /* puts the wrapper absolutely on the page */
+            top: 60%; /* 60% from the top of the page */
+            transform: translateY(-80%); /*  further up by 80% of its  height */
+            width: 90%; /* Makes the wrapper take up 90% of the width of the page */
+            text-align: center; /* centers the eyes in the wrapper */
+        }
+        .eye {
+            width: 190px; /* width of eye */
+            height: 170px; /* height of eye */
+            background: rgb(255, 255, 255); /* makes the eye's background color white */
+            display: inline-block; /* Displays the eye as an inline-block so the eyes can be placed next to each other */
+            margin: 40px; /* space between each eye */
+            border-radius: 50%; /* shaping the eye making sure its round */
+            position: relative; /* makes the position of the eye relative to its normal place (needed for positioning the pupil) */
+            overflow: hidden; /* this hides anythign thats outisde the eye so the pupil doesnt go outside the eye */
+        }
+
+        .ball {
+            width: 40px; /* width of the pupil */
+            height: 40px; /* height of the pupil*/
+            background: rgb(0, 0, 0); /* setting the pupil to black */
+            position: absolute; /* makign sure the pupil is in the center  */
+            top: 50%; /* postioning the eye in the middle  */
+            left: 50%; /* postioning the eye in the middle  */
+            transform: translate(-50%, -50%); /* postions the eyes in the center  */
+            border: 5px solid rgb(255, 13, 0); /* adds a red border around the pupil i added this becuase I wanted a creepy vibe */
+            border-radius: 50%; /* shapign the pupil  */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="eye">
+            <div class="ball"></div>
+        </div>
+        <div class="eye">
+            <div class="ball"></div>
+        </div>
+    </div> 
+    <script src="sketch.js"></script>
+
+</body>
+</html>
