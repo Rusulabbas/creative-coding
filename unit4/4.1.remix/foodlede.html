@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<!--
+Food Lede
+An adaptation of Nick Montfort's "Lede" (2012)
+This version generates food-related sentences.
+
+Original work: http://nickm.com/poems/lede.html
+
+
+Original Copyright (c) 2012 Nick Montfort <nickm@nickm.com>
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved. This file is offered as-is,
+without any warranty.
+-->
+<style type="text/css">
+/* <![CDATA[ */
+body {
+ background: #000000;
+ color: #ffffff;
+ margin: 0 0 0 24pt;
+ font-family: Optima, sans-serif;
+ font-size: 13pt;
+}
+a {
+ color: #117;
+ text-decoration: none;
+}
+/* ]]> */
+</style>
+<script type="text/javascript">
+var t = 0;
+var food_situation = ["waiting in line at a food truck", "browsing a farmers market", "reading a menu", "meal prepping", "organizing the spice cabinet", "checking expiration dates", "watching cooking shows", "writing a grocery list", "reading restaurant reviews", "planning a dinner party", "comparing recipes online"];
+var food_descriptor = ["a hungry", "a picky", "a health-conscious", "a vegetarian", "a gluten-free", "a spice-loving", "an adventurous", "a traditional", "a food-blogging", "a diet-tracking", "a meal-planning"];
+var cuisine_type = ["Italian", "Japanese", "Mexican", "Indian", "French", "Thai", "Korean", "Ethiopian", "Greek", "Brazilian", "Vietnamese", "Lebanese"];
+var food_person = ["chef", "food critic", "home cook", "food photographer", "restaurant owner"];
+var food_character = ["a talking avocado", "a dancing chocolate bar", "a singing pasta noodle", "a wise old cheese wheel", "a mysterious mushroom", "a wandering coffee bean", "a magical spice jar", "a time-traveling tomato", "a philosophical pizza slice", "a traveling teacup", "a mystical mixing bowl"];
+var food_action = ["cook with", "taste-test with", "share recipes with", "critique restaurants with", "go grocery shopping with", "meal prep with", "food photograph with", "bake cookies with", "ferment vegetables with", "compose dishes with", "plan menus with", "food blog with"];
+
+function rand_range(max) {
+    "use strict";
+    return Math.floor(Math.random() * (max + 1));
+}
+
+function fresh(array) {
+    "use strict";
+    var index = rand_range(array.length - 2) + 1, selection = array[index];
+    array[index] = array[0];
+    array[0] = selection;
+    return selection;
+}
+
+function story() {
+    "use strict";
+    var last, lede, main = document.getElementById('main');
+    if (t <= 12) {
+        t += 1;
+    } else {
+        main.removeChild(document.getElementById('main').firstChild);
+    }
+    last = document.createElement('div');
+    last.appendChild(document.createElement('br'));
+    lede = "While " + fresh(food_situation) + ", " + fresh(food_descriptor) + " " + fresh(cuisine_type) + " " + fresh(food_person) + " had an idea: Why not dress as " + fresh(food_character) + " and " + fresh(food_action) + " people?";
+    last.appendChild(document.createTextNode(lede));
+    main.appendChild(last);
+}
+
+function produce_stories() {
+    "use strict";
+    story();
+    setInterval(story, 3500);
+}</script>
+  <title>Food Lede</title>
+</head>
+<body onload="produce_stories();">
+<div style="float:right; background:#999; margin-left:6px; border-left:thin #000 solid; border-bottom:thin #000 solid; padding:6px">
+<div><br>Food Lede<br />An adaptation of <a href="http://nickm.com/poems/lede.html">Lede by Nick Montfort</a><br />Rusul Abbas</div>
+</div>
+<div id="main"></div>
+</body>
+</html>

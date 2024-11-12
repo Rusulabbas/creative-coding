@@ -1,0 +1,172 @@
+<html lang="en">
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+    Hate Letters 
+    An adaptation of Love Letters (1953) by Christopher Strachey
+    Original reimplementation copyright (c) 2014, 2024 Nick Montfort <nickm@nickm.com>
+    Adaptation by Rusul Abbas
+    -->
+    <style>
+        body {
+            margin: 0;
+            font-family: monospace;
+            font-size: clamp(1rem, 1vw, 1.5rem);
+            overflow:hidden;
+            background: #1a0000;
+            color: #ff6666;
+        }
+        header {
+            background: #330000;
+            margin: 0;
+            border-bottom: #400 solid .2rem;
+            width: 100%;
+            height: 5.2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        header > h1 {
+            padding: .3rem .8rem .2rem .8rem;
+            font-family: "Courier New", Courier, monospace;
+            font-size: .85rem;
+            font-weight: normal;
+            white-space: nowrap;
+        }
+        a {
+            text-decoration: none;
+            color: #ff3333;
+        }
+        #main {
+            padding: 8rem 6vw 3vh 6vw;
+        }
+    </style>
+    <script>
+        var t = 0, caps = false, pause = false;
+
+        const hugeSpace = '<br><br>          ',
+
+        first = ['Hey', 'Just so you know', 'Listen up', 'FYI'],
+        second = ['frenemy', 'acquaintance', 'person I tolerate', 'unfortunate soul'],
+        adjectives = ['ridiculous', 'messy', 'crazy', 'weird', 
+            'awkward', 'unreal', 'nonsense', 'silly', 'absurd', 
+            'out there', 'bizarre', 'unbelievable', 'funny', 
+            'impossible', 'wild', 'insane', 'strange', 'ludicrous', 
+            'absurd', 'random', 'laughable', 'unexpected'],
+        nouns = ['situation', 'mess', 'thing', 'disaster', 
+            'oops', 'issue', 'problem', 'confusion', 'scene', 
+            'catastrophe', 'moment', 'glitch', 'mishap', 
+            'hot mess', 'struggle', 'mix-up', 'blunder'],
+        adverbs = ['completely', 'totally', 'ridiculously', 'absolutely', 
+            'hilariously', 'unbelievably', 'awkwardly', 'wildly', 
+            'surprisingly', 'insanely', 'awkwardly'],
+        verbs = ['baffles', 'messes up', 'wrecks', 'breaks', 
+            'ruins', 'botches', 'confuses', 'throws off', 
+            'goofs up', 'doesn’t make sense', 'screws up', 
+            'disorients', 'throws a wrench in', 'jumbles', 
+            'messes with'];
+
+        function fullscreenListeners(f) {
+            f("mozfullscreenchange", fullscreenEvt);
+            f("MSFullscreenChange", fullscreenEvt);
+            f("fullscreenchange", fullscreenEvt);
+            f("webkitfullscreenchange", fullscreenEvt);
+        }
+
+        function fullscreenEvt(incomingReq) {
+            fullscreenListeners(document.removeEventListener);
+            if(incomingReq === true || document.mozFullScreen || 
+            document.fullscreenElement || document.webkitIsFullScreen || 
+            document.msFullscreenElement) {
+                var fsElt = document.documentElement;
+                if (fsElt.requestFullscreen) fsElt.requestFullscreen();
+                else if (fsElt.msRequestFullscreen) fsElt.msRequestFullscreen();
+                else if (fsElt.mozRequestFullScreen) fsElt.mozRequestFullScreen();
+                else if (fsElt.webkitRequestFullScreen) 
+                    fsElt.webkitRequestFullScreen();
+                nav.style.display = "none";
+                main.style.paddingTop = "0";
+            }
+            else nav.style.display = "block";
+            main.style.paddingTop = "8rem";
+            fullscreenListeners(document.addEventListener);
+        }
+
+        function pick(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function maybe(words) {
+            return (Math.random() > 0.5) ? ' ' + pick(words) : '';
+        }
+
+        function longer() {
+            return ' Your' + maybe(adjectives) + ' ' + pick(nouns) + 
+            maybe(adverbs) + ' ' + pick(verbs) + ' my' + 
+            maybe(adjectives) + ' ' + pick(nouns) + '.';
+        }
+
+        function shorter() { 
+            return ' ' + pick(adjectives) + ' ' + pick(nouns) + '.'; 
+        }
+
+        function letter() {
+            var i, type, you_are = false, text = '';
+            text = text + pick(first) + ' ' + pick(second) + ',<br><br>';
+            for (i = 0; i < 10; i = i + 1) {
+                type = pick(['longer', 'shorter']);
+                if (type === 'longer') {
+                    text = text + longer();
+                    you_are = false;
+                } else {
+                    if (you_are) {
+                        text = text.slice(0, -1) + ' -- here’s a glimpse of' + shorter();
+                        you_are = false;
+                    } else {
+                        text = text + ' Check out your' + shorter();
+                        you_are = true;
+                    }
+                }
+            }
+            text = text + hugeSpace + 'With all due sarcasm, ' + pick(adverbs) + 
+                    hugeSpace + '     ' + 'Your favorite frenemy';
+            return text;
+        }
+
+        function nextText() {
+            var last, main = document.getElementById('main');
+            if (pause) setTimeout(nextText, 300);
+            else {
+                if (25 > t) t += 1;
+                else main.removeChild(main.firstChild);
+                last = document.createElement('p');
+                last.innerHTML = caps ? letter().toUpperCase() : letter();
+                main.appendChild(last);
+                main.lastChild.scrollIntoView({block:"end", behavior:"smooth"});
+                setTimeout(nextText, 12000);
+            }
+        }
+    </script>
+    <title>Hate Letters (Based on Strachey's Love Letters)</title>
+</head>
+<body onload=nextText()>
+    <header id=nav>
+        <h1>
+            <span style="float: right; font-size: 150%; clear:both">
+                <a id=pb onclick="pause=!pause;pb.style.color=pause?'#ff6666':'red'">⏸</a>
+                <a id=cl onclick="caps=!caps;cl.style.color=caps?'#ff6666':'red'">⇪</a> 
+                <a onclick=fullscreenEvt(true)>⛶</a>
+            </span>
+            Hate Letters V2 (2024)<br>
+            based on Love Letters (1953) by
+            <a href="https://en.wikipedia.org/wiki/Christopher_Strachey">Christopher Strachey</a><br>
+            Original code by <a href="https://nickm.com">Nick Montfort</a>,
+            adapted by Rusul Abbas <br>
+            An adaptation from <a href="https://nickm.com/memslam/">Memory Slam 2.0</a>
+        </h1>
+    </header>
+    <div id=main></div>
+</body>
+</html>
