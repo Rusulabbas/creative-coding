@@ -1,11 +1,14 @@
-let quatrain = ''; // Empty string to hold the generated text
-let grammar; // Declare a variable for the grammar
+let quatrain = '';
+let grammar; 
+
+///I used the code you walked us through in class as a foundation, and I also referenced Alison Knowles' "House of Dust"
+// source code to gather the different phrases she used. Then, I applied what we learned in class to create variations
+// for the "send" and "family" sections.
 
 function setup() {
   createCanvas(800, 800);
-  frameRate(.1); // Redraw once per second
-  
-  // Define the Tracery grammar
+  frameRate(.1); 
+
   grammar = tracery.createGrammar({
     "material": [
       "STONE",
@@ -95,18 +98,17 @@ function setup() {
 
     ],
 
-    "origin": "A HOUSE OF #material# #place# MY #family# GOT KIDNAPPED BY #inhabitants#!!! SEND #SEND#!!"  // Grammar rule to create the sentence
+    "origin": "A HOUSE OF #material# #place# MY #family# GOT KIDNAPPED BY #inhabitants#!!! SEND #SEND#!!"  
   });
 }
 
 function draw() {
   background(220);
 
-  // Generate a new quatrain every time draw is called
   quatrain = grammar.flatten("#origin#");
   
-  textFont('Impact'); // Set font to Impact (ensure it's available)
+  textFont('Impact'); 
   textSize(40);
-  textWrap(WORD);  // Ensure the text wraps at word boundaries
-  text(quatrain, 50, 70, width - 100, height - 100); // Draw the quatrain with wrapping
+  textWrap(WORD); 
+  text(quatrain, 50, 70, width - 100, height - 100); 
 }
