@@ -1,3 +1,4 @@
+///I followed your youtube video as a refernce. Very helpful and informative.
 let ripplers = []; // array to keep track of all the ripples
 
 class Rippler {
