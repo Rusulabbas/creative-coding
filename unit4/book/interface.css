@@ -12,7 +12,8 @@
 
 @media screen, pagedjs-ignore {
     body {
-        font-family: 'Impact', sans-serif;
+        background-color: var(--color-background);
+
     }
 
     .pagedjs_pages {
