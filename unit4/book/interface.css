@@ -18,6 +18,10 @@
         background-color: var(--color-background);
     }
 
+    .glossary::after {
+        content: " " url("https://images.squarespace-cdn.com/content/v1/5e10bdc20efb8f0d169f85f9/1626540043972-24ITZFD4GJ69DY1K7KDE/surfing-js.png");
+      }
+
     .pagedjs_pages {
         display: flex;
         width: calc(var(--pagedjs-width) * 2);
