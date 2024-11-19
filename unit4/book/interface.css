@@ -2,11 +2,11 @@
 
 /* Change the look */
 :root {
-    --color-background: rgb(0, 0, 0);
+    --color-background: rgb(255, 255, 255);
     --color-pageSheet: #cfcfcf;
     --color-pageBox: violet;
-    --color-paper: #704214;
-    --color-marginBox: orange;
+    --color-paper: #ffdd8a;
+    --color-marginBox: white;
     --pagedjs-crop-color: black;
     --pagedjs-crop-shadow: white;
     --pagedjs-crop-stroke: 1px;
