@@ -8,7 +8,7 @@
     --color-paper: #ffdd8a;
     --color-marginBox: transparent;
     --pagedjs-crop-color: black;
-    --pagedjs-crop-shadow: white;
+    --pagedjs-crop-shadow: rgb(194, 0, 0);
     --pagedjs-crop-stroke: 1px;
 }
 
@@ -97,7 +97,7 @@
 }
 
 @page {
-    @bottom-left {
+    @bottom-right {
       content: "Page " counter(page) " of " counter(pages);
     }
   }
