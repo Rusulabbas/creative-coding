@@ -13,6 +13,7 @@
 @media screen, pagedjs-ignore {
     body {
         background-color: var(--color-background);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
 
     }
 
