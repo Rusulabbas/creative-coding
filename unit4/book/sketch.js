@@ -34,13 +34,6 @@ function setup() {
     }
   }
 
-  // Add the "About the Author" section
-  let aboutParagraph = "The author of this work is a curious mind, constantly exploring the limits of creativity and repetition. With a deep interest in programming and the unexpected, the author delves into creating unique textual landscapes that transcend the ordinary.";
-  let aboutSentence = "Just like the abyss, their fascination with infinite loops and patterns continues to draw them deeper into the world of coding and design.";
-
-  content.child(createElement("h2", "About the Author"));
-  content.child(createElement("p", aboutParagraph));
-  content.child(createElement("p", aboutSentence));
 }
 
 window.PagedPolyfill.preview(); 
