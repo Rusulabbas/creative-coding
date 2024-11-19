@@ -6,7 +6,7 @@ function setup() {
 
   let content = select("body");
   content.attribute("id", "content");
-  
+
   content.child(createElement("h1", "The Many " + word + "s"));
 
   while (wc < 50000) {  
@@ -34,7 +34,7 @@ function setup() {
     }
   }
 
-    // Add the "About the Author" section
+  // Add the "About the Author" section
   let aboutParagraph = "The author of this work is a curious mind, constantly exploring the limits of creativity and repetition. With a deep interest in programming and the unexpected, the author delves into creating unique textual landscapes that transcend the ordinary.";
   let aboutSentence = "Just like the abyss, their fascination with infinite loops and patterns continues to draw them deeper into the world of coding and design.";
 
@@ -43,5 +43,4 @@ function setup() {
   content.child(createElement("p", aboutSentence));
 }
 
-  
-  window.PagedPolyfill.preview();
+window.PagedPolyfill.preview(); 
