@@ -93,7 +93,13 @@
 
 
 }
-    
+
+@page {
+    @bottom-left {
+      content: "Page " counter(page) " of " counter(pages);
+    }
+  }
+
     .pagedjs_pages {
         flex-direction: column;
         width: 100%;
