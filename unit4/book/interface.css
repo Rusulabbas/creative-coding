@@ -5,7 +5,7 @@
     --color-background: whitesmoke;
     --color-pageSheet: #cfcfcf;
     --color-pageBox: violet;
-    --color-paper: white;
+    --color-paper: #704214;
     --color-marginBox: transparent;
     --pagedjs-crop-color: black;
     --pagedjs-crop-shadow: white;
@@ -18,9 +18,7 @@
         background-color: var(--color-background);
     }
 
-    .glossary::after {
-        content: " " url("https://images.squarespace-cdn.com/content/v1/5e10bdc20efb8f0d169f85f9/1626540043972-24ITZFD4GJ69DY1K7KDE/surfing-js.png");
-      }
+
 
     .pagedjs_pages {
         display: flex;
