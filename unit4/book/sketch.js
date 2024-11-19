@@ -9,7 +9,7 @@ function setup() {
   content.attribute("id", "content");
 
   content.child(createElement("h1", "Many " + word + "s"));  
-  content.style("font-family",  'Verdana');  //added a font
+  content.style("font-family",  'impact');  //added a font
   
 
   while (wc < 50000) {
