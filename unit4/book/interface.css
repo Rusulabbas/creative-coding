@@ -2,9 +2,11 @@
 
 /* Change the look */
 :root {
-    --color-background: linear-gradient(to bottom, #ffdd8a, #d6b874);    --color-pageSheet: #cfcfcf;
+    --color-background: linear-gradient(to bottom, #ffdd8a, #d6b874);   
+    --color-pageSheet: #cfcfcf;
     --color-pageBox: violet;
-    --color-paper: linear-gradient(to bottom, #ffdd8a, #d6b874);    --color-marginBox: transparent;
+    --color-paper: linear-gradient(to bottom, #ffdd8a, #d6b874);    
+    --color-marginBox: transparent;
     --pagedjs-crop-color: black;
     --pagedjs-crop-shadow: rgb(194, 0, 0);
     --pagedjs-crop-stroke: 1px;
