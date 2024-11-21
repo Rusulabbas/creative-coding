@@ -97,6 +97,11 @@
 }
 
 @page {
+
+    @top-left {
+        content: "Chapter "; 
+    }
+    
     @bottom-right {
       content: "Page " counter(page) " of " counter(pages);
     }
