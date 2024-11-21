@@ -97,15 +97,22 @@
 }
 
 @page {
+    margin: 20mm; 
 
-    @top-left {
-        content: "Chapter "; 
-    }
     
-    @bottom-right {
-      content: "Page " counter(page) " of " counter(pages);
+    @top-left {
+        content: "Chapter Title"; 
+        font-size: 12px; 
+        font-style: italic; 
     }
-  }
+
+    @bottom-right {
+        content: "Page " counter(page) " of " counter(pages); 
+        font-size: 12px; 
+        color: gray; 
+    }
+}
+
 
     .pagedjs_pages {
         flex-direction: column;
