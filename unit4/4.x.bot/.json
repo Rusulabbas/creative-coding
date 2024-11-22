@@ -1,0 +1,10 @@
+{
+    "origin": ["#name# from #place# is #action#. #name# also #funny_action# while #place_action#. Suddenly, #dramatic_ending#."],
+    "name": ["Luciano Wright", "Christian Osborn", "Maggie Eaton", "Valentin Abbott", "Arlen Knight", "Brigitte Boone", "Lenora Cunningham", "Madeleine Short", "Alfreda Clements", "Rosendo Boyle"],
+    "place": ["Villebois, France", "Lenta, Italy", "Kalemie, Democratic Republic of the Congo", "Ledeberg, Belgium", "Le Mee-sur-Seine, France", "Zegerscappel, France", "Gucheng, China", "Xiangshui, China", "Ciwalen, Indonesia", "Titab, Indonesia", "Sao Goncalo do Amarante, Brazil", "Pupri, India", "Rot, Germany", "Achikulak, Russian Federation", "Iwakuni, Japan", "Marzling, Germany", "Foothill Ranch, CA, United States", "'s-Gravenzande, Netherlands", "Vojens, Denmark", "Betanzos, Plurinational State of Bolivia"],
+    "action": ["jumping", "punching", "swimming", "running", "climbing", "dancing", "throwing", "catching", "kicking", "sliding"],
+    "funny_action": ["starts breakdancing", "sings opera", "starts juggling pineapples", "pretends to be a chicken", "throws a spaghetti noodle like a javelin", "invents a new dance move", "makes a sandwich mid-air", "yells 'I’m Batman!' while flying"],
+    "place_action": ["people stare in awe", "a nearby dog howls", "the local bakery goes out of business", "the sky turns purple", "aliens land", "a trampoline mysteriously appears", "the ocean waves cheer", "the ground shakes with laughter"],
+    "dramatic_ending": ["the world explodes in a flash of light", "a black hole suddenly opens beneath them", "the ground splits open, swallowing everything in its path", "a mysterious figure appears, shrouded in darkness", "time itself seems to stop", "a terrible earthquake shakes the entire place", "a thunderstorm erupts out of nowhere", "a portal to another dimension opens", "a giant meteor crashes down from the sky", "they vanish into thin air, never to be seen again"]
+  }
+  
