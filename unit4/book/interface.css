@@ -99,13 +99,14 @@
 @page {
     margin: 20mm;
     @top-left {
-        content: "Many Abyss";
-        transform: rotate(-5deg);
+        content: "Book Title";
     }
     @top-right {
-        content: "Chapter Abyss";
+        content: "Chapter Abyss"; /* Should display here */
         font-size: 12px;
         font-style: italic;
+        border: 1px solid red; /* Debugging border */
+
     }
     @bottom-right {
         content: "Page " counter(page) " of " counter(pages);
@@ -114,6 +115,7 @@
         text-align: right;
     }
 }
+
 
 
 
