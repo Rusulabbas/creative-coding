@@ -97,11 +97,14 @@
 }
 
 @page {
-    margin: 20mm; 
+    margin: 20mm;
 
-    
     @top-left {
-        content: "Chapter Title"; 
+        content: "Book Title"; 
+        transform: rotate(-5deg);
+
+    @top-right {
+        content: "Chapter Abyss"; 
         font-size: 12px; 
         font-style: italic; 
     }
@@ -110,8 +113,10 @@
         content: "Page " counter(page) " of " counter(pages); 
         font-size: 12px; 
         color: gray; 
+        text-align: right;
     }
 }
+
 
 
     .pagedjs_pages {
@@ -193,4 +198,4 @@
 .pagedjs_bleed-left .pagedjs_marks-crop:last-child,
 .pagedjs_bleed-right .pagedjs_marks-crop:last-child{
     box-shadow: 0px -1px 0px 0px var(--pagedjs-crop-shadow);
-}
+}}
