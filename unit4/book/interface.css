@@ -12,7 +12,6 @@
     --pagedjs-crop-stroke: 1px;
 }
 
-/* To define how the book look on the screen: */
 @media screen, pagedjs-ignore {
     body {
         background-color: var(--color-background);
@@ -68,7 +67,6 @@
         left: calc(var(--pagedjs-bleed-left)*-1);
     }
 
-    /* show the margin-box */
 
     .pagedjs_margin-top-left-corner-holder,
     .pagedjs_margin-top,
@@ -100,11 +98,11 @@
     margin: 20mm;
 
     @top-right {
-        content: "Chapter Abyss"; /* Should display here */
+        content: "Chapter Abyss"; 
         font-size: 12px;
         font-style: italic;
     }
-    
+
     @bottom-right {
         content: "Page " counter(page) " of " counter(pages);
         font-size: 12px;
