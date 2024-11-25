@@ -98,9 +98,7 @@
 
 @page {
     margin: 20mm;
-    @top-left {
-        content: "Book Title";
-    }
+
     @top-right {
         content: "Chapter Abyss"; /* Should display here */
         font-size: 12px;
