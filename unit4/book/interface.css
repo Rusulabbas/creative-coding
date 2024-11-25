@@ -103,9 +103,8 @@
         content: "Chapter Abyss"; /* Should display here */
         font-size: 12px;
         font-style: italic;
-        border: 1px solid red; /* Debugging border */
-
     }
+    
     @bottom-right {
         content: "Page " counter(page) " of " counter(pages);
         font-size: 12px;
