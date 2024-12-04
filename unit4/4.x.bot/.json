@@ -1,10 +1,28 @@
-{
-    "origin": ["#name# from #place# is #action#. #name# also #funny_action# while #place_action#. Suddenly, #dramatic_ending#."],
-    "name": ["Luciano Wright", "Christian Osborn", "Maggie Eaton", "Valentin Abbott", "Arlen Knight", "Brigitte Boone", "Lenora Cunningham", "Madeleine Short", "Alfreda Clements", "Rosendo Boyle"],
-    "place": ["Villebois, France", "Lenta, Italy", "Kalemie, Democratic Republic of the Congo", "Ledeberg, Belgium", "Le Mee-sur-Seine, France", "Zegerscappel, France", "Gucheng, China", "Xiangshui, China", "Ciwalen, Indonesia", "Titab, Indonesia", "Sao Goncalo do Amarante, Brazil", "Pupri, India", "Rot, Germany", "Achikulak, Russian Federation", "Iwakuni, Japan", "Marzling, Germany", "Foothill Ranch, CA, United States", "'s-Gravenzande, Netherlands", "Vojens, Denmark", "Betanzos, Plurinational State of Bolivia"],
-    "action": ["jumping", "punching", "swimming", "running", "climbing", "dancing", "throwing", "catching", "kicking", "sliding"],
-    "funny_action": ["starts breakdancing", "sings opera", "starts juggling pineapples", "pretends to be a chicken", "throws a spaghetti noodle like a javelin", "invents a new dance move", "makes a sandwich mid-air", "yells 'I’m Batman!' while flying"],
-    "place_action": ["people stare in awe", "a nearby dog howls", "the local bakery goes out of business", "the sky turns purple", "aliens land", "a trampoline mysteriously appears", "the ocean waves cheer", "the ground shakes with laughter"],
-    "dramatic_ending": ["the world explodes in a flash of light", "a black hole suddenly opens beneath them", "the ground splits open, swallowing everything in its path", "a mysterious figure appears, shrouded in darkness", "time itself seems to stop", "a terrible earthquake shakes the entire place", "a thunderstorm erupts out of nowhere", "a portal to another dimension opens", "a giant meteor crashes down from the sky", "they vanish into thin air, never to be seen again"]
-  }
-  
+
+{"origin": [
+  "#name# from #place# is #action#. While doing so, #name# also #funnyaction# as #placeaction#. Then, #dramaticending#."],
+"name": ["Emma Carter","Liam Henderson", "Sophia Nguyen","Ethan Patel", "Olivia Brown","Noah Johnson","Charlotte Davis","James Wilson",
+"Ava Martinez","Benjamin Lee"],
+
+"place": ["Austin, Texas","Florence, Italy","Kyoto, Japan","Reykjavik, Iceland","Barcelona, Spain","Cape Town, South Africa","Anchorage, Alaska",
+"Hanoi, Vietnam","Sydney, Australia","Vancouver, Canada"],
+"action": ["eating a taco", "trying a new ice cream flavor","grabbing a coffee to-go","carrying a pizza box", "snacking on fries",
+"holding a donut","sipping on bubble tea","carving a watermelon","making a sandwich","taste-testing soup" ],
+
+"funnyaction": ["accidentally drops a fry and panics like it's their last one","realizes too late they’ve spilled coffee on their shirt",
+"takes a giant bite and immediately regrets it because it’s too hot","spills bubble tea pearls everywhere and tries to pick them up",
+"ends up with powdered sugar all over their face","tries to snap a food pic but drops their phone into the dish",
+"gets sauce on their nose without noticing","eats so fast they hiccup loudly","offers a bite to no one and looks confused",
+"accidentally flings a piece of food across the room"
+],
+
+"placeaction": ["a waiter raises an eyebrow but keeps walking","a little kid points and giggles",
+"someone shouts, 'Five-second rule!' from another table","the chef watches in quiet amusement","the barista shakes their head with a knowing smile",
+"a dog nearby perks up, hoping for crumbs","another diner claps and laughs","a server casually hands them a napkin without saying a word",
+"a stranger offers to help clean up","the smell of freshly baked bread makes everyone hungry" ],
+
+"dramaticending": ["a waiter drops their tray and everyone gasps","a gust of wind blows their food off the table",
+"a chef comes out and gives them a standing ovation for how much they ate","the restaurant gives them a free dessert for making everyone laugh",
+"a stranger sits down and shares their fries without asking","the kitchen accidentally serves them a meal they didn’t order, and it’s amazing",
+"the lights dim dramatically, and everyone cheers","the coffee shop runs out of their favorite drink right after they order it",
+"a food critic at the next table takes notes on the chaos","the dessert tray topples, and everyone joins in to help pick it up"]}
